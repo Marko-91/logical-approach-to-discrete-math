@@ -59,13 +59,13 @@ true .
 
 ### (3.7) Metatheorem: any two theorems are equivalent.
 
-## Negation, inequivalence, and false ("~", "!==", "false")
+## Negation, inequivalence, and false ("~", "!=", "false")
 
 ### (3.8) Axiom, definition of false: false == ~true
 
 ### (3.9) Axiom, distributivity of ~ over ==: ~(p == q) == ~p == q
 
-### (3.10) Axiom, definition of !==: (p !== q) == ~(p == q)
+### (3.10) Axiom, definition of !=: (p != q) == ~(p == q)
 
 ### (3.11) ~p == q == p == ~q
 
@@ -132,11 +132,11 @@ true .
 
 
 
-### (3.14) (p !== q) == ~p == q
+### (3.14) (p != q) == ~p == q
 
 ```pseudocode
 LHS
-= <(3.10) def !==>
+= <(3.10) def !=>
 ~(p == q)
 
 = <(3.9) distributivity of ~ over ==>
@@ -163,11 +163,11 @@ true .
 
 
 
-### (3.16) Symmetry of !==: (p !== q) == (q !== p)
+### (3.16) Symmetry of !=: (p != q) == (q != p)
 
 ```pseudocode
 LHS
-= <(3.14) (p !== q) == ~p == q>
+= <(3.14) (p != q) == ~p == q>
 ~p == q
 
 = <(3.9) distributivity of ~ over ==>
@@ -179,35 +179,35 @@ LHS
 = <(3.9) distributivity of ~ over ==>
 ~q == p
 
-= <(3.14) (p !== q) == ~p == q>
-(q !== p) .
+= <(3.14) (p != q) == ~p == q>
+(q != p) .
 ```
 
 
 
-### (3.17) Associativity of !==: ((p !== q) !== r) == (p !== (q !== r))
+### (3.17) Associativity of !=: ((p != q) != r) == (p != (q != r))
 
 ```pseudocode
-((p !== q) !== r) LHS
+((p != q) != r) LHS
 
-= <(3.14) (p !== q) == ~p == q, p:= (p !== q)>
-~(p !== q) == r
+= <(3.14) (p != q) == ~p == q, p:= (p != q)>
+~(p != q) == r
 
-= <(3.14) (p !== q) == ~p == q>
+= <(3.14) (p != q) == ~p == q>
 ~(~p == q) == r
 
 = <(3.9) distributivity of ~ over ==>
 ~~p == q == r
 
 = <(3.12) double negation>
-((p !== q) !== r) == p == q == r : lemma 3.12.1
+((p != q) != r) == p == q == r : lemma 3.12.1
 
-(p !== (q !== r)) RHS
+(p != (q != r)) RHS
 
-= <(3.14) (p !== q) == ~p == q>
-~p == (q !== r)
+= <(3.14) (p != q) == ~p == q>
+~p == (q != r)
 
-= <(3.14) (p !== q) == ~p == q>
+= <(3.14) (p != q) == ~p == q>
 ~p == ~q == r
 
 = <(3.11) ~p == q == p == ~q, q := ~q)
@@ -216,37 +216,37 @@ LHS
 = <(3.12) double negation>
 p == q == r
 
-<(3.12.1) ((p !== q) !== r) == p == q == r>
-((p !== q) !== r) .
+<(3.12.1) ((p != q) != r) == p == q == r>
+((p != q) != r) .
 ```
 
 
 
-### (3.18) Mutual associativity: ((p !== q) == r) == (p !== (q == r))
+### (3.18) Mutual associativity: ((p != q) == r) == (p != (q == r))
 
 ```pseudocode
 RHS
-= <(3.14) (p !== q) == ~p == q>
+= <(3.14) (p != q) == ~p == q>
 ~p == q == r
 
-= <(3.14) (p !== q) == ~p == q>
-(p !== q) == r .
+= <(3.14) (p != q) == ~p == q>
+(p != q) == r .
 ```
 
 
 
-### (3.19) Mutual interchangeability: p !== q == r == p == q !== r
+### (3.19) Mutual interchangeability: p != q == r == p == q != r
 
 ```pseudocode
 LHS
-= <(3.14) (p !== q) == ~p == q>
+= <(3.14) (p != q) == ~p == q>
 = ~p == q == r
 
 = <(3.11) ~p == q == p == ~q)
 = p == ~q == r
 
-= <(3.14) (p !== q) == ~p == q>
-= p == q !== r .
+= <(3.14) (p != q) == ~p == q>
+= p == q != r .
 ```
 
 
@@ -756,7 +756,7 @@ p v q == ~p v ~q
 
 
 
-### (3.53) XOR: p !== q == (~p & q) v (p & ~q)
+### (3.53) XOR: p != q == (~p & q) v (p & ~q)
 
 ```
 <distributivity>
@@ -769,7 +769,7 @@ p v q == ~p v ~q
 p v q & ~p v ~q
 
 LHS:
-<def !==>
+<def !=>
 ~(p == q)
 ```
 
@@ -781,18 +781,18 @@ LHS:
 
 
 
-## Implication ("->")
+## Implication ("=>")
 
 <hr>
 
-### (3.57) Axiom, definition of implication: p -> q == p v q == q
+### (3.57) Axiom, definition of implication: p => q == p v q == q
 
-### (3.58) Axiom, consequence: p <- q == q -> p
+### (3.58) Axiom, consequence: p <- q == q => p
 
-### (3.59) Definition of implication: p -> q == ~p v q
+### (3.59) Definition of implication: p => q == ~p v q
 
 ```
-<3.57 def ->>
+<3.57 def =>>
 p v q == ~p v q == q
 
 <3.32 q == q v p == q v ~p>
@@ -807,10 +807,10 @@ true == true .
 
 
 
-### (3.60) Definition of implication: p -> q == p & q == p
+### (3.60) Definition of implication: p => q == p & q == p
 
 ```
-<3.59 def of ->>
+<3.59 def of =>>
 p v q == q == p & q == p
 
 < symmetry of ==>
@@ -820,14 +820,14 @@ p == q == p v q == p & q . by golden rule
 
 
 
-### (3.61) Contrapositive p -> q == ~q -> ~p
+### (3.61) Contrapositive p => q == ~q => ~p
 
 ```
-~q -> ~p
-<def ->>
-p -> q == ~p v q
+~q => ~p
+<def =>>
+p => q == ~p v q
 
-<def ->>
+<def =>>
 p v q == q == ~p v q
 
 <symmetry of ==, 3.32 q == q v p == q v ~p>
@@ -840,15 +840,15 @@ p v q == ~p v q == p v q == ~p v q
 true == true .
 ```
 
-### (3.62) p -> (q == r) == p & q == p & r
+### (3.62) p => (q == r) == p & q == p & r
 
 ```
 p & q == p & r
 <3.49>
 p & (q == r) == p
 
-p -> (q == r)
-<def ->>
+p => (q == r)
+<def =>>
 p & (q == r) == p 
 lhs == rhs .
 
@@ -856,15 +856,15 @@ lhs == rhs .
 
 
 
-### (3.63) Distributivity of -> over ==: p -> (q == r) == p -> q == p -> r
+### (3.63) Distributivity of => over ==: p => (q == r) == p => q == p => r
 
 ```
-p -> q == p -> r
-<def ->>
+p => q == p => r
+<def =>>
 p v q == q == p v r == r lemma 3.63.1
 
-p -> (q == r)
-<def ->>
+p => (q == r)
+<def =>>
 p v (q == r) == q == r
 
 <distributivity>
@@ -877,51 +877,51 @@ p v q == q == p v r == r . by lemma 3.63.1
 
 
 
-### (3.64) p -> (q -> r) == (p -> q)  -> (p -> r)
+### (3.64) p => (q => r) == (p => q)  => (p => r)
 
 ```
-(p -> q) -> (p -> r)
-<def ->>
-(p -> q) v (p -> r) == p -> r
+(p => q) => (p => r)
+<def =>>
+(p => q) v (p => r) == p => r
 
-<def ->>
-(p v q == q) v (p v r == r) == p -> r
-
-<distributivity of v over ==>
-(p v q == q) v (p v r) == (p v q == q) v r == p -> r
+<def =>>
+(p v q == q) v (p v r == r) == p => r
 
 <distributivity of v over ==>
-p v q v p v r == p v q v r == p v q v r == q v r == p -> r
+(p v q == q) v (p v r) == (p v q == q) v r == p => r
+
+<distributivity of v over ==>
+p v q v p v r == p v q v r == p v q v r == q v r == p => r
 
 <idempotency of v>
-p v q v r == p v q v r == p v q v r == q v r == p -> r
+p v q v r == p v q v r == p v q v r == q v r == p => r
 
 <identity of ==>
-p v q v r == q v r == p -> r
+p v q v r == q v r == p => r
 
-p -> (q -> r)
-<def ->>
-p -> (q v r == r)
+p => (q => r)
+<def =>>
+p => (q v r == r)
 
-<def ->>
-p -> q v r == p -> r
+<def =>>
+p => q v r == p => r
 
-<def ->>
-p v q v r == q v r == p -> r . lhs == rhs
-
-```
-
-
-
-### (3.65) Shunting: p & q -> r == p -> (q -> r)
+<def =>>
+p v q v r == q v r == p => r . lhs == rhs
 
 ```
-p & q -> r
-<def ->>
+
+
+
+### (3.65) Shunting: p & q => r == p => (q => r)
+
+```
+p & q => r
+<def =>>
 p & q & r == p & q
 
-p -> (q -> r)
-<def ->>
+p => (q => r)
+<def =>>
 p & (q & r == q) == p
 
 <3.49 distributivity of & over add p>
@@ -936,11 +936,11 @@ p & q & r == p & q . lhs == rhs
 
 
 
-### (3.66) p & (p -> q) == p & q
+### (3.66) p & (p => q) == p & q
 
 ```
-p & (p -> q)
-def ->
+p & (p => q)
+def =>
 p & (p & q == p)
 
 <3.49 distributivity of & over add p>
@@ -955,10 +955,10 @@ p & q .
 
 
 
-### (3.67) p & (q -> p) == p
+### (3.67) p & (q => p) == p
 
 ```
- p & (q -> p)
+ p & (q => p)
  (3.66, p:= q, q:= p)
  p & p
  
@@ -969,10 +969,10 @@ p & q .
 
 
 
-### (3.68) p v (p -> q) == true
+### (3.68) p v (p => q) == true
 
 ```
-def ->
+def =>
 p v (p v q == q)
 
 distributivity
@@ -987,12 +987,12 @@ true .
 
 
 
-### (3.69) p v (q -> p) == q -> p
+### (3.69) p v (q => p) == q => p
 
 ```
-p v (q -> p)
+p v (q => p)
 
-def ->
+def =>
 p v (q v p == p)
 
 distributivity
@@ -1001,8 +1001,8 @@ p v q v p == p v p
 idempotency of v
 p v q == p
 
-q -> p
-def ->
+q => p
+def =>
 q v p == p
 
 symmetry of v
@@ -1013,21 +1013,21 @@ p v q == p . lhs == rhs
 
 
 
-### (3.70) p v q -> p & q == p == q
+### (3.70) p v q => p & q == p == q
 
 ```
- p v q -> p & q == p == q
+ p v q => p & q == p == q
  golden rule
- p v q -> p & q == p & q == p v q
+ p v q => p & q == p & q == p v q
  
  identity of == 
- p v q -> p v q . by reflexivity of ->
+ p v q => p v q . by reflexivity of =>
 
 ```
 
 
 
-### (3.71) Reflexivity of ->: p -> p == true
+### (3.71) Reflexivity of =>: p => p == true
 
 ```
 def v
@@ -1040,10 +1040,10 @@ identity of ==
 true .
 ```
 
-### (3.72) Right zero of ->: p -> true == true
+### (3.72) Right zero of =>: p => true == true
 
 ```
-def ->
+def =>
 p v true == true
 
 zero of v
@@ -1055,10 +1055,10 @@ true .
 
 
 
-### (3.73) Left identity of ->: true -> p == p
+### (3.73) Left identity of =>: true => p == p
 
 ```
-def ->
+def =>
 true v p == p
 
 zero of v
@@ -1070,10 +1070,10 @@ p .
 
 
 
-### (3.74) p -> false == ~p
+### (3.74) p => false == ~p
 
 ```
-def ->
+def =>
 p v false == false
 
 identity of v
@@ -1083,10 +1083,10 @@ p == false == ~p . by 3.15
 
 
 
-### (3.75) false -> p == true
+### (3.75) false => p == true
 
 ```
-def ->
+def =>
 false v p == p
 
 identity of v
@@ -1100,10 +1100,10 @@ true .
 
 ### (3.76) Weakening/strengthening
 
-#### (a) p -> p v q
+#### (a) p => p v q
 
 ```
-def ->
+def =>
 p v p v q == p v q
 
 idempotency of v
@@ -1115,10 +1115,10 @@ true .
 
 
 
-#### (b) p & q -> p
+#### (b) p & q => p
 
 ```
-def ->
+def =>
 p & q & p == p & q
 
 idempotency of &
@@ -1130,10 +1130,10 @@ true .
 
 
 
-#### (c) p & q -> p v q
+#### (c) p & q => p v q
 
 ```
-def ->
+def =>
 ~(p & q) v p v q
 
 de morgan
@@ -1151,50 +1151,50 @@ true .
 
 
 
-#### (d) p v (q & r) -> p v q
+#### (d) p v (q & r) => p v q
 
 ```
 distributivity
-p v q & p v r -> p v q
- (p)  &	 (q)  ->   (p) .
+p v q & p v r => p v q
+ (p)  &	 (q)  =>   (p) .
 
 weakening/strenghtening
 ```
 
 
 
-#### (e) p & q -> p & (q v r)
+#### (e) p & q => p & (q v r)
 
 ```
-p & q -> p & q v p & r
- (p)  ->  (p)  v  (q) . 
+p & q => p & q v p & r
+ (p)  =>  (p)  v  (q) . 
  
  weakening/strenghtening
 ```
 
 
 
-### (3.77) Modus ponens: p & (p -> q) -> q
+### (3.77) Modus ponens: p & (p => q) => q
 
 ```
-def ->
+def =>
 p & (~p v q)
 
 3.44 absorption
-p & q -> q . by 3.76 (b)
+p & q => q . by 3.76 (b)
 ```
 
 
 
-### (3.78) Form of case analysis: (p -> r) & (q -> r) == (p v q -> r)
+### (3.78) Form of case analysis: (p => r) & (q => r) == (p v q => r)
 
 ```
-p v q -> r
+p v q => r
 golden rule
 p v q v r == r
 
-(p -> r) & (q -> r)
-def ->
+(p => r) & (q => r)
+def =>
 (p v r == r) & (q v r == r)
 
 golden rule
@@ -1214,11 +1214,11 @@ p v q v r == r .
 
 
 
-### (3.79) Form of case analysis: (p -> r) & (~p -> r) == r
+### (3.79) Form of case analysis: (p => r) & (~p => r) == r
 
 ```
-(p -> r) & (~p -> r)
-def ->
+(p => r) & (~p => r)
+def =>
 (p v r == r) & (~p v r == r)
 
 golden rule
@@ -1242,11 +1242,11 @@ r .
 
 
 
-### (3.80) Mutual implication: (p -> q) & (q -> p) == p == q
+### (3.80) Mutual implication: (p => q) & (q => p) == p == q
 
 ```
-(p -> q) & (q -> p)
-def ->
+(p => q) & (q => p)
+def =>
 (p v q == q) & (q v p == p)
 
 golden rule
@@ -1262,29 +1262,338 @@ identity, symmetry of ==
 p == q .
 ```
 
-### (3.81) Antisymmetry: (p -> q) & (q -> p) -> (p == q)
+### (3.81) Antisymmetry: (p => q) & (q => p) => (p == q)
 
 ```
-(p -> q) & (q -> p) 
+(p => q) & (q => p) 
 3.80
-p == q -> (p == q) . by reflexivity of ->
+p == q => (p == q) . by reflexivity of =>
 ```
 
 
 
 ### (3.82) Transitivity
 
-#### (a) (p -> q) & (q -> r) -> (p -> r)
+#### (a) (p => q) & (q => r) => (p => r)
 
 ```
-p v q == q == q == r == r == p v q == q v q == r == r ... T
+3.78, form of case analysis
+p v q => r => p => r
+
+def =>
+p v q v r == r => p v r == r
+
+def =>
+(p v q v r == r) v (p v r == r) == p v r == r
+
+distributivity
+p v q v r == p v q v r == p v r == r == p v r == r
+
+identity, symmetry of ==
+true == true == true .
+```
+
+
+
+#### (b) (p == q) & (q => r) => (p => r)
+
+```
+TODO
+```
+
+
+
+#### (c) (p => q) & (q == r) => (p == r)
+
+```
+TODO
+```
+
+
+
+### (3.83) Axiom, Leibniz (e = f) => (E[z:= e] = E[z:= f])
+
+> If e = f is true in a state, then E[z:= e] = E[z:= f] is true in that state.
+
+### (3.84) Substitution
+
+#### (a) (e = f) & E[z:= e] == (e = f) & E[z:= f] 
+
+```
+***
+Axiom, leibniz
+(e = f) => (E[z:= e] = E[z:= f])
+
+def =>
+(e = f) v (E[z:= e] = E[z:= f]) == (E[z:= e] = E[z:= f])
+
+def =>
+(e = f) & (E[z:= e] = E[z:= f]) == (e = f)
+***
+
+(e = f) & E[z:= e] == (e = f) & E[z:= f] 
+golden rule
+(e = f) & E[z:= e] & (e = f) & E[z:= f] == (e = f) & E[z:= e] v (e = f) & E[z:= f]
+
+distributivity
+E[z:= e] & E[z:= f] == (e = f) & (E[z:= e] v E[z:= f])
+
+Axiom, leibniz
+E[z:= e] & E[z:= f] == (e = f)
+
+E = z = e
+z = e & z = e == e = f
+
+E[z:= e], E[z:= f]
+e = e & f = e == e = f
+
+identity of =
+e = f == e = f . by identity of ==
+```
+
+
+
+#### (b) (e = f) => E[z:= e] == (e = f) => E[z:= f]
+
+```
+E = z = f
+(e = f) => z = f[z:= e] == (e = f) => z = f[z:= f]
+
+substitution
+(e = f) => e = f == (e = f) => f = f
+
+symmetry of = 
+(e = f) => e = f == (e = f) => true
+
+right zero of =>
+(e = f) => e = f == true
+
+reflexivity of =>
+true == true .
+```
+
+
+
+#### (c) q & (e = f) => E[z:= e] == q & (e = f) => E[z:= f]
+
+```
+E = z = f
+q & (e = f) => z = f[z:= e] == q & (e = f) => z = f[z:= f]
+
+substitution
+q & (e = f) => e = f == q & (e = f) => f = f
+
+symmetry of = 
+q & (e = f) => e = f == q & (e = f) => true
+
+right zero of =>
+q & (e = f) => e = f == true
+
+<(3.65) Shunting: p & q => r == p => (q => r)>
+q => (e = f => e = f == true)
+
+reflexivity of =>
+q => true . by right zero of =>
+```
+
+
+
+### (3.85) Replace by true
+
+#### (a) p => E[z:= p] == p => E[z:= true]
+
+```
+E = z
+p => z[z:= p] == p => z[z:= true]
+
+substitution
+p => p == p => true
+
+right zero of =>
+p => p == true . by right zero of =>
+```
+
+
+
+#### (b) q & p => E[z:= p] == p & q => E[z:= true] 
+
+```
+E = z
+q & p => z[z:= p] == p & q => z[z:= true]
+
+substitution
+q & p => p == p & q => true
+
+<(3.65) Shunting: p & q => r == p => (q => r)>
+q => (p => p) == p & q => true
+
+right zero of =>
+q => (p => p) == true
+
+reflexivity of =>
+q => true == true
+
+right zero of =>
+true == true .
+```
+
+
+
+### (3.86) Replace by false
+
+#### (a) E[z:= p] => p == E[z:= false] => p
+
+```
+E = z
+z[z:= p] => p == z[z:= false] => p
+
+substitution
+p => p == false => p
+
+<3.74 false => p == true>
+p => p == true
+
+right zero of =>
+true .
 ```
 
 
 
 
 
-#### (b) (p == q) & (q -> r) -> (p -> r)
+#### (b) E[z:= p] => p v q == E[z:= false] => p v q
 
-#### (c) (p -> q) & (q == r) -> (p == r)
+```
+E = z
+z[z:= p] => p v q == z[z:= false] => p v q
 
+substitution
+p => p v q == false => p v q
+
+<3.74 false => p == true>
+p => p v q == true
+
+<(3.76) Weakening/strengthening p => p v q>
+true == true .
+```
+
+
+
+### (3.87) Replace by true: p & E[z:= p] == p & E[z:= true]
+
+```
+E = z
+p & z[z:= p] == p & z[z:= true]
+
+substitution
+p & p == p & true
+
+idempotency of &
+p == p & true
+
+identity of &
+p == p . 
+```
+
+
+
+### (3.88) Replace by false: p v E[z:= p]  == p v E[z:= false]
+
+```
+E = z
+p v z[z:= p]  == p v z[z:= false]
+
+substitution
+p v p == p v false
+
+idempotency of p
+p == p v false
+
+<identity of v p v false == p>
+p == p .
+```
+
+
+
+### (3.89) Shannon: E[z:= p] == (p & E[z:= true]) v (~p & E[z:= false])
+
+```
+E = z
+z[z:= p] == (p & z[z:= true]) v (~p & z[z:= false])
+
+substitution
+p == (p & true) v (~p & false)
+
+identity of &
+p == p v (~p & false)
+
+<(3.40) p & false == false>
+p == p v false
+
+identity of v
+p == p .
+```
+
+
+
+```
+p & q => (p == q)
+replace by true 3.85b
+p & q => p == true
+
+replace by true 3.85b
+p & q => true == true
+
+identity ==
+p & q => true
+
+right zero of =>
+true .
+```
+
+
+
+## Exercises on duals
+
+### (3.85) P == ~Pd
+
+```
+P is of the form, q & r, q == r, q => r
+
+de morgan
+~(q & r) == ~q v ~r .
+
+q == r == ~(q != r)
+definition of !=
+q == r == ~~(q == r)
+
+double negation
+q == r == q == r . by symmetry of ==
+
+q => r == ~(q <- r) ...
+```
+
+## Exercises on normal forms
+
+$$
+E_{0} \wedge E_{1} \wedge ... \wedge E_{n-1}
+$$
+
+> where each Ei is a disjunction of variables and negation of variables.
+
+` (a ^ ~b) v (a ^ b ^ c) v (~a)`
+
+### (3.89) Exercise 
+
+| A    | B    | C    | D    |
+| ---- | ---- | ---- | ---- |
+| 1    | 1    | 1    | 0    |
+| 1    | 1    | 1    | 1    |
+| 1    | 0    | 1    | 0    |
+| 0    | 1    | 1    | 0    |
+
+```
+(p & q) v ~(q & ~p) v ~(p & ~p) v ~(p & ~q) - DNF
+
+~(p v q) & (q v ~p) & (p v ~p) & ~(p v ~q) - CNF
+```
