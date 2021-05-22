@@ -71,6 +71,7 @@ true .
 
 ```pseudocode
 LHS
+test &not;
 = <(3.2) symmetry of ==, q:= ~q>
 ~q == p
 
